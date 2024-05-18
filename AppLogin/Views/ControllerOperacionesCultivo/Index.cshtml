@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AppLogin.Model.OperacionesCultivo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstadoOperacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaOperacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCultivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdAgricultor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eliminado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoOperacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaOperacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCultivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAgricultor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eliminado)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdOperacion">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdOperacion">Details</a> |
+                    
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
